@@ -1,0 +1,21 @@
+.main-content {
+    margin: auto;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.up-image-container {
+    background-color: red;
+}
+
+.trecos {
+    display: flex;
+    flex-direction: column;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Manipulation</title>
+</head>
+<body>
+    <div class="main-content">
+        <div class="up-image-container">
+            <h1>Selecione</h1>
+            <input type="file" name="image" id="img-uploader">
+            <!-- <select id="filter-changer">
+                <option value="none">None</option>
+                <option value="red">Red</option>
+                <option value="gaussian">Gaussian</option>
+                <option value="grayscale">Grayscale</option>
+                <option value="highpass">highpass</option>
+                <option value="invert">invert</option>
+                <option value="laplacian">laplacian</option>
+                <option value="prewittHorizontal">Prewitt Horizontal</option>
+                <option value="prewittVertical">Prewitt Vertical</option>
+                <option value="roberts">roberts</option>
+                <option value="saturation">saturation</option>
+                <option value="sepia">sepia</option>
+                <option value="sharpen">sharpen</option>
+                <option value="sobelHorizontal">sobel Horizontal</option>
+                <option value="sobelVertical">sobel Vertical</option>
+                <option value="thresholding">thresholding</option>
+              </select> -->
+              <div class="trecos">
+                <div class="filters">
+                    <h2>Filtros</h2>
+                    <input onchange="applyFilter(this)" id="gaussian" value="bigGaussian" name="gaussian" type="checkbox">
+                    <label for="gaussian">Gaussiano</label>
+                    <input onchange="applyFilter(this)" id="laplacian" class="filter-changer" value="laplacian" name="laplacian" type="checkbox">
+                    <label for="laplacian">Laplaciano</label>
+                </div>
+                <div class="transformations">
+                    <h2>Transformações</h2>
+                    <input onchange="applyFilter(this)" id="brigthness" class="filter-changer" value="brightness" type="checkbox">
+                    <label for="brightness">Brilho</label>
+                    <input onchange="applyFilter(this)" id="gamma" class="filter-changer" value="Gamma" name="gamma" type="checkbox">
+                    <label for="gamma">Gamma</label>
+                </div>
+            </div>
+        </div>
+        <div class="display-container">
+            <h2>Original</h2>
+            <img id="original-image" />
+        </div>
+        <div class="download-image-container">
+            <h2>Com filtros</h2>
+            <canvas id="filtered-image" ></canvas>  
+        </div>
+    </div>
+    <script src="lena.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
