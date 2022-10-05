@@ -131,7 +131,7 @@ function makeGaussKernel(sigma){
   }
   return kernel;
 }
-
+// Laplace funcs
 function applyLaplace() {
   let pixels = contextComFiltro.getImageData(0, 0, canvaoOriginal.width, canvaoOriginal.height)
 
@@ -207,4 +207,19 @@ function applyGrayScale (pixels) {
     data[i + 3] = 255;
   }
   contextComFiltro.putImageData(pixels, 0, 0)
+}
+
+//Brilho Funcs
+const applyBrilho = () => {
+	const imageData = contextComFiltro.getImageData(0, 0, canvaoOriginal.width, canvaoOriginal.height);
+	const data = imageData.data;
+
+	for (let i = 0; i < data.length; i += 4) {
+		data[i]     = data[i] + 100;
+		data[i + 1] = data[i + 1] + 100;
+		data[i + 2] = data[i + 2] + 100;
+		// data[i + 3] = 255;
+	}
+
+	contextComFiltro.putImageData(imageData, 0, 0);
 }
