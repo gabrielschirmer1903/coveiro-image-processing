@@ -33,14 +33,14 @@
               <div class="trecos">
                 <div class="filters">
                     <h2>Filtros</h2>
-                    <input onchange="applyFilter(this)" id="gaussian" value="bigGaussian" name="gaussian" type="checkbox">
+                    <input onchange="applyGauss()" id="gaussian" value="bigGaussian" name="gaussian" type="checkbox">
                     <label for="gaussian">Gaussiano</label>
-                    <input onchange="applyFilter(this)" id="laplacian" class="filter-changer" value="laplacian" name="laplacian" type="checkbox">
+                    <input onchange="applyLaplace()" id="laplacian" class="filter-changer" value="laplacian" name="laplacian" type="checkbox">
                     <label for="laplacian">Laplaciano</label>
                 </div>
                 <div class="transformations">
                     <h2>Transformações</h2>
-                    <input onchange="applyFilter(this)" id="brigthness" class="filter-changer" value="brightness" type="checkbox">
+                    <input onchange="applyLaplace()" id="brigthness" class="filter-changer" value="brightness" type="checkbox">
                     <label for="brightness">Brilho</label>
                     <input onchange="applyFilter(this)" id="gamma" class="filter-changer" value="Gamma" name="gamma" type="checkbox">
                     <label for="gamma">Gamma</label>
@@ -49,7 +49,7 @@
         </div>
         <div class="display-container">
             <h2>Original</h2>
-            <img id="original-image" />
+            <canvas id="canvao"></canvas>
         </div>
         <div class="download-image-container">
             <h2>Com filtros</h2>
