@@ -1,21 +1,98 @@
+body {
+    background-color: #323F4B;
+    color: #E4E7EB;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.cuz-whynot {
+    background-color: #1f2933;
+    height: 45px;
+}
+
 .main-content {
     margin: auto;
     padding: 40px;
     display: flex;
     justify-content: space-between;
-}
-
-.up-image-container {
-    background-color: red;
-}
-
-.trecos {
-    display: flex;
     flex-direction: column;
 }
 
 
-body {
-    padding: 0;
-    margin: 0;
+.images-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+.up-image-container {
+    background-color: #1f2933;
+    padding: 8px 16px;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trecos {
+    display: flex;
+    margin-top: 12px;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.upload-input {
+    display: none;
+}
+
+.upload-label {
+    padding: 20px 10px;
+    width: 200px;
+    background-color: #52606D;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 200px;
+}
+
+.reset-btn {
+    padding: 20px 10px;
+    width: 200px;
+    background-color: #52606D;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    width: 220px;
+}
+
+.actions-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.reset-btn:hover {
+    background-color: #616E7C;
+}
+.upload-label:hover {
+    background-color: #616E7C;
+}
+
+canvas {
+    max-width: 450px;
 }

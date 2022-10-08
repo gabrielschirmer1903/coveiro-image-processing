@@ -8,37 +8,44 @@
     <title>Manipulation</title>
 </head>
 <body>
+    <nav class="cuz-whynot"></nav>
     <div class="main-content">
+        <div class="images-wrapper">
+            
+            <div class="display-container">
+                <h2>Original</h2>
+                <canvas id="canvao"></canvas>
+            </div>
+            <div class="download-image-container">
+                <h2>Com filtros</h2>
+                <canvas id="filtered-image" ></canvas>  
+            </div>
+        </div>
         <div class="up-image-container">
-            <h1>Selecione</h1>
-            <input type="file" name="image" id="img-uploader">
+            <h3>Selecione</h3>
+            <div class="actions-wrapper">
+                <input class="upload-input" type="file" name="upload-input" id="upload-input">
+                <label class="upload-label" for="upload-input">Envia sua imagem</label>
+                <button onclick="resetFilters()" class="reset-btn">Limpar filtros</button>
+            </div>
               <div class="trecos">
                 <div class="filters">
-                    <h2>Filtros</h2>
+                    <h4>Filtros</h4>
                     <input onchange="applyGauss()" id="gaussian" value="bigGaussian" name="gaussian" type="checkbox">
                     <label for="gaussian">Gaussiano</label>
                     <input onchange="applyLaplace()" id="laplacian" class="filter-changer" value="laplacian" name="laplacian" type="checkbox">
                     <label for="laplacian">Laplaciano</label>
                 </div>
                 <div class="transformations">
-                    <h2>Transformações</h2>
-                    <input onchange="applyBrilho()" id="brigthness" class="filter-changer" value="brightness" type="checkbox">
+                    <h4>Transformações</h4>
+                    <input onchange="applyBrilho()" id="brightness" class="filter-changer" value="brightness" type="checkbox">
                     <label for="brightness">Brilho</label>
                     <input onchange="applyGamma()" id="gamma" class="filter-changer" value="Gamma" name="gamma" type="checkbox">
                     <label for="gamma">Gamma</label>
                 </div>
             </div>
         </div>
-        <div class="display-container">
-            <h2>Original</h2>
-            <canvas id="canvao"></canvas>
-        </div>
-        <div class="download-image-container">
-            <h2>Com filtros</h2>
-            <canvas id="filtered-image" ></canvas>  
-        </div>
     </div>
-    <script src="lena.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

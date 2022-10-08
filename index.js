@@ -1,4 +1,4 @@
-const imageLoader = document.getElementById('img-uploader');
+const imageLoader = document.getElementById('upload-input');
 const filterChanger = document.getElementsByClassName("filter-changer");
 const imageUploaded = false;
 let originalImage = new Image();
@@ -10,7 +10,10 @@ const canvaoComFiltro = document.getElementById("filtered-image")
 const contextOriginal = canvaoOriginal.getContext("2d")
 const contextComFiltro = canvaoComFiltro.getContext("2d")
 
-
+const laplace = document.getElementById('laplacian')
+const gaussian = document.getElementById('gaussian')
+const brightness = document.getElementById('brightness')
+const gamma = document.getElementById('gamma')
 
 originalImage.onload = () => {
   // sets canvas size to fit images
@@ -22,7 +25,6 @@ originalImage.onload = () => {
   // draw original image
   contextOriginal.drawImage(originalImage, 0, 0)
   contextComFiltro.drawImage(originalImage, 0, 0)
-
 }
 
 
@@ -37,13 +39,13 @@ imageLoader.addEventListener('change', function (e) {
   reader.readAsDataURL(e.target.files[0]);
 }, false);
 
-let laplace = document.getElementById('laplacian')
-let gaussian = document.getElementById('gaussian')
-let brightness = document.getElementById('brightness')
-let gamma = document.getElementById('gamma')
+function resetFilters() {
+  contextComFiltro.drawImage(originalImage, 0, 0)
 
-function applyFilter(e) {
-
+  laplace.checked = false
+  gamma.checked = false
+  gaussian.checked = false
+  brightness.checked = false
 }
 
 
