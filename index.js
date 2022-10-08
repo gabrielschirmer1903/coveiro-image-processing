@@ -234,3 +234,12 @@ function applyGamma() {
 
   contextComFiltro.putImageData(imageData, 0, 0);
 }
+
+function downloadNewImage() {
+  const link = document.createElement("a")
+  let currentDate = new Date()
+
+  link.download = 'new_image_' + currentDate.getTime().toString() + '.png'
+  link.href = canvaoComFiltro.toDataURL('image/png', 1.0).replace('image/png', 'image/octet-strem')
+  link.click()
+}
