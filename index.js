@@ -1,6 +1,6 @@
-var imageLoader = document.getElementById('img-uploader');
-var filterChanger = document.getElementsByClassName("filter-changer");
-var imageUploaded = false;
+const imageLoader = document.getElementById('img-uploader');
+const filterChanger = document.getElementsByClassName("filter-changer");
+const imageUploaded = false;
 let originalImage = new Image();
 let filteredImage = new Image();
 
@@ -48,30 +48,30 @@ function applyFilter(e)  {
 
 
 function applyGauss () {
-  let pixels = contextComFiltro.getImageData(0, 0, canvaoOriginal.width, canvaoOriginal.height)
+  let imagePixels = contextComFiltro.getImageData(0, 0, canvaoOriginal.width, canvaoOriginal.height)
 
   const sigma = 8
   var kernel = makeGaussKernel(sigma);
 
   // Blur a cahnnel (RGB or Grayscale)
   for (var ch = 0; ch < 3; ch++){
-    gauss_internal(pixels, kernel, ch, false);
+    gaussianBlur(imagePixels, kernel, ch, false);
   }
   // Apply the modified pixels
-  contextComFiltro.putImageData(pixels, 0, 0);
+  contextComFiltro.putImageData(imagePixels, 0, 0);
 }
 
 /**
-* Internal helper method
-* @param pixels - the Canvas pixles
+* Gaussian
+* @param imagePixels - pixels do canvas
 * @param kernel - the Gaussian blur kernel
-* @param ch - the color channel to apply the blur on
-* @param gray - flag to show RGB or Grayscale image
+* @param colorChannel - canal de cores onde o blur sera aplicado
+* @param grayFlag - flag para mostrar o RGB
 */
-function gauss_internal(pixels, kernel, ch, gray){
-  var data = pixels.data;
-  var width = pixels.width;
-  var heigth = pixels.height;
+function gaussianBlur(imagePixels, kernel, colorChannel, grayFlag){
+  var data = imagePixels.data;
+  var width = imagePixels.width;
+  var heigth = imagePixels.height;
   var buff = new Uint8Array(width*heigth); 
   var mk = Math.floor(kernel.length / 2);
   var kl = kernel.length;
@@ -86,7 +86,7 @@ function gauss_internal(pixels, kernel, ch, gray){
       {
         var col = i + (k - mk);
         col = (col < 0) ? 0 : ((col >= width) ? width - 1 : col);
-        sum += data[(hw + col)*4 + ch]*kernel[k];
+        sum += data[(hw + col)*4 + colorChannel]*kernel[k];
       }
       buff[hw + i] = sum;
     }
@@ -105,7 +105,7 @@ function gauss_internal(pixels, kernel, ch, gray){
         sum += buff[(row*width + i)]*kernel[k];
       }
       var off = (j*width + i)*4;
-      (!gray) ? data[off + ch] = sum : 
+      (!grayFlag) ? data[off + colorChannel] = sum : 
                 data[off] = data[off + 1] = data[off + 2] = sum;
     }
   }
