@@ -60,7 +60,7 @@ function applyGauss() {
     gauss_internal(pixels, kernel, ch, false);
   }
   // Apply the modified pixels
-  contextComFiltro.putImageData(imagePixels, 0, 0);
+  contextComFiltro.putImageData(pixels, 0, 0);
 }
 
 /**
