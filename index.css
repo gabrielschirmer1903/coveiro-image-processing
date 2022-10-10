@@ -34,7 +34,7 @@ h2 {
 .up-image-container {
     background-color: #1f2933;
     padding: 8px 16px;
-    width: 50%;
+    max-width: 50%;
     margin: auto;
     display: flex;
     flex-direction: column;
